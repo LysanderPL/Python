@@ -1,36 +1,34 @@
-# FINDING ALL BRIDGES IN GRAPH 
+# FINDING ALL BRIDGES IN GRAPH
 
 graph = {
-    1: [2,3],
-    2: [1,3,4],
-    3: [1,2],
-    4: [5,2],
-    5: [4],
+  1: [2,3],
+  2: [1,3,4],
+  3: [1,2],
+  4: [5,2],
+  5: [4],
 }
 
 FORBIDEN_EDGE = (0,0)
 
-
 class Stack:
-    
-    def __init__(self):
-      self.elements = []
-        
-    def pop(self):
-      if len(self.elements) > 0: 
-        return self.elements.pop(-1)
-      else:
-        return "ERROR"
-           
-    def push(self, a):
-      self.elements.append(a)
 
-    def empty(self):
-      if len(self.elements) == 0:
-        return True
-      else:
-        return False
+  def __init__(self):
+    self.elements = []
 
+  def pop(self):
+    if len(self.elements) > 0:
+      return self.elements.pop(-1)
+    else:
+      return "ERROR"
+
+  def push(self, a):
+    self.elements.append(a)
+
+  def empty(self):
+    if len(self.elements) == 0:
+      return True
+    else:
+      return False
 
 def edges():
   set_of_edges = set()
@@ -76,17 +74,16 @@ def components():
 
 
 def main():
-    
-    c = components()
-    set_of_edges = edges()
-    global FORBIDEN_EDGE
-    for (v, u) in set_of_edges:
-      FORBIDEN_EDGE = (v, u)
-      c2 = components() 
-      if c2 > c:
-          print FORBIDEN_EDGE, "bridge"
-      else:
-          pass
+  c = components()
+  set_of_edges = edges()
+  global FORBIDEN_EDGE
+  for (v, u) in set_of_edges:
+    FORBIDEN_EDGE = (v, u)
+    c2 = components()
+    if c2 > c:
+      print FORBIDEN_EDGE, "bridge"
+    else:
+      pass
         
 if __name__ == "__main__":
     main()
