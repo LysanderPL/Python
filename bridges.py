@@ -53,7 +53,7 @@ def dfs(v):
       for element in neighbors:
         if v == FORBIDEN_EDGE[0] and element == FORBIDEN_EDGE[1]:   
           continue
-        elif v == FORBIDEN_EDGE[1] and element == FORBIDEN_EDGE[0]:   
+        if v == FORBIDEN_EDGE[1] and element == FORBIDEN_EDGE[0]:   
           continue
         else:
           s.push(element)
